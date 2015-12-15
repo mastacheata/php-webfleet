@@ -1,0 +1,25 @@
+#################
+## PHPStorm
+#################
+
+.idea/
+
+#################
+## Eclipse
+#################
+
+.settings/
+.buildpath
+.project
+
+#################
+## Misc
+#################
+
+composer.lock
+docs
+vendor
+config/.env
+storage/cert/cacert.pem
+*.pdf
+examples/example.php
