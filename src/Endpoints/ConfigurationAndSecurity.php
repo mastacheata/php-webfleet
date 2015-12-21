@@ -4,15 +4,13 @@
  *
  * @filesource   ConfigurationAndSecurity.php
  * @created      13.12.2015
- * @package      TomTom\Telematics\EndpointHandler\Interfaces
+ * @package      TomTom\Telematics\Endpoints
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2015 Smiley
  * @license      MIT
  */
 
 namespace TomTom\Telematics\Endpoints;
-
-use TomTom\Telematics\Parameters\ConfigurationAndSecurity as ConfigurationAndSecurityParams;
 
 /**
  * 4.11 Configuration and security
@@ -30,9 +28,9 @@ interface ConfigurationAndSecurity{
 	 * variable under Settings in the Reporting tab, the given weight in relation to the
 	 * weight of the other three variables is indicated in brackets.
 	 *
-	 * @param $target_username
+	 * @param array|\TomTom\Telematics\Parameters\ConfigurationAndSecurity $params
 	 */
-	public function showSettings($target_username);
+	public function showSettings($params);
 
 	/**
 	 * 4.11.2 createSession
@@ -79,9 +77,9 @@ interface ConfigurationAndSecurity{
 	 * not affected by this change. If you want to update the properties of multiple order
 	 * states for the whole account you have to update each order state separately.
 	 *
-	 * @param \TomTom\Telematics\Parameters\ConfigurationAndSecurity $params
+	 * @param array|\TomTom\Telematics\Parameters\ConfigurationAndSecurity $params
 	 */
-	public function updateAccountOrderState(ConfigurationAndSecurityParams $params);
+	public function updateAccountOrderState($params);
 
 	/**
 	 * 4.11.6 showAccountOrderAutomations
@@ -104,9 +102,9 @@ interface ConfigurationAndSecurity{
 	 * Previously created orders are not affected by this change. You can update multiple
 	 * workflow steps by running the action for each step separately.
 	 *
-	 * @param \TomTom\Telematics\Parameters\ConfigurationAndSecurity $params
+	 * @param array|\TomTom\Telematics\Parameters\ConfigurationAndSecurity $params
 	 */
-	public function updateAccountOrderAutomation(ConfigurationAndSecurityParams $params);
+	public function updateAccountOrderAutomation($params);
 
 	/**
 	 * 4.11.8 getAccountStatusMessages
@@ -128,18 +126,18 @@ interface ConfigurationAndSecurity{
 	 * synchronised with the status messages in the WEBFLEET account. For account
 	 * wide configuration please refer to getAccountStatusMessages.
 	 *
-	 * @param \TomTom\Telematics\Parameters\ConfigurationAndSecurity $params
+	 * @param array|\TomTom\Telematics\Parameters\ConfigurationAndSecurity $params
 	 */
-	public function getStatusMessages(ConfigurationAndSecurityParams $params);
+	public function getStatusMessages($params);
 
 	/**
 	 * 4.11.10 setVehicleConfig
 	 *
 	 * Using setVehicleConfig you can change one or more LINK specific configurations at once.
 	 *
-	 * @param \TomTom\Telematics\Parameters\ConfigurationAndSecurity $params
+	 * @param array|\TomTom\Telematics\Parameters\ConfigurationAndSecurity $params
 	 */
-	public function setVehicleConfig(ConfigurationAndSecurityParams $params);
+	public function setVehicleConfig($params);
 
 	/**
 	 * 4.11.11 getVehicleConfig
@@ -147,9 +145,9 @@ interface ConfigurationAndSecurity{
 	 * Using getVehicleConfig you can retrieve LINK specific configuration settings for
 	 * individual vehicles or all vehicles in the WEBFLEET account.
 	 *
-	 * @param \TomTom\Telematics\Parameters\ConfigurationAndSecurity $params
+	 * @param array|\TomTom\Telematics\Parameters\ConfigurationAndSecurity $params
 	 */
-	public function getVehicleConfig(ConfigurationAndSecurityParams $params = null);
+	public function getVehicleConfig($params = null);
 
 	/**
 	 * 4.11.12 setStatusMessages
@@ -159,9 +157,9 @@ interface ConfigurationAndSecurity{
 	 * Setting predefined status messages for the WEBFLEET account can be done using
 	 * setAccountStatusMessages.
 	 *
-	 * @param \TomTom\Telematics\Parameters\ConfigurationAndSecurity $params
+	 * @param array|\TomTom\Telematics\Parameters\ConfigurationAndSecurity $params
 	 */
-	public function setStatusMessages(ConfigurationAndSecurityParams $params);
+	public function setStatusMessages($params);
 
 	/**
 	 * 4.11.13 setAccountStatusMessages
@@ -170,8 +168,8 @@ interface ConfigurationAndSecurity{
 	 * for a whole WEBFLEET account. For object specific configurations use
 	 * setStatusMessages.
 	 *
-	 * @param \TomTom\Telematics\Parameters\ConfigurationAndSecurity $params
+	 * @param array|\TomTom\Telematics\Parameters\ConfigurationAndSecurity $params
 	 */
-	public function setAccountStatusMessages(ConfigurationAndSecurityParams $params);
+	public function setAccountStatusMessages($params);
 
 }

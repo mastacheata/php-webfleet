@@ -4,16 +4,13 @@
  *
  * @filesource   Events.php
  * @created      13.12.2015
- * @package      TomTom\Telematics\EndpointHandler\Interfaces
+ * @package      TomTom\Telematics\Endpoints
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2015 Smiley
  * @license      MIT
  */
 
 namespace TomTom\Telematics\Endpoints;
-
-use TomTom\Telematics\Parameters\DateRangeFilter;
-use TomTom\Telematics\Parameters\Events as EventParams;
 
 /**
  * 4.7 Events
@@ -25,10 +22,10 @@ interface Events{
 	 *
 	 * Provides a list of event notifications.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Events          $params
-	 * @param \TomTom\Telematics\Parameters\DateRangeFilter $dateRangeFilterParams
+	 * @param array|\TomTom\Telematics\Parameters\Events          $params
+	 * @param array|\TomTom\Telematics\Parameters\DateRangeFilter $dateRangeFilterParams
 	 */
-	public function showEventReportExtern(EventParams $params = null, DateRangeFilter $dateRangeFilterParams = null);
+	public function showEventReportExtern($params = null, $dateRangeFilterParams = null);
 
 	/**
 	 * 4.7.2 acknowledgeEventExtern
@@ -36,60 +33,60 @@ interface Events{
 	 * Flags an event at an alarmed level as acknowledged.
 	 * The event level will be set to the next lower level.
 	 *
-	 * @param int $eventid
+	 * @param array|\TomTom\Telematics\Parameters\Events $params
 	 */
-	public function acknowledgeEventExtern($eventid);
+	public function acknowledgeEventExtern($params);
 
 	/**
 	 * 4.7.3 resolveEventExtern
 	 *
 	 * Flags an event below an alarmed level as resolved.
 	 *
-	 * @param int $eventid
+	 * @param array|\TomTom\Telematics\Parameters\Events $params
 	 */
-	public function resolveEventExtern($eventid);
+	public function resolveEventExtern($params);
 
 	/**
 	 * 4.7.4 getEventForwardConfigs
 	 *
 	 * This action returns event forwarding configurations.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Events $params
+	 * @param array|\TomTom\Telematics\Parameters\Events $params
 	 */
-	public function getEventForwardConfigs(EventParams $params = null);
+	public function getEventForwardConfigs($params = null);
 
 	/**
 	 * 4.7.5 getEventForwardConfigRecipients
 	 *
-	 * @param string $eventforwardconfiguid
+	 * @param array|\TomTom\Telematics\Parameters\Events $params
 	 */
-	public function getEventForwardConfigRecipients($eventforwardconfiguid);
+	public function getEventForwardConfigRecipients($params);
 
 	/**
 	 * 4.7.6 insertEventForwardConfig
 	 *
 	 * Using insertEventForwardConfig you can create a new event forwarding configuration.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Events $params
+	 * @param array|\TomTom\Telematics\Parameters\Events $params
 	 */
-	public function insertEventForwardConfig(EventParams $params);
+	public function insertEventForwardConfig($params);
 
 	/**
 	 * 4.7.7 updateEventForwardConfig
 	 *
 	 * Using updateEventForwardConfig you can update an existing event forwarding configuration.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Events $params
+	 * @param array|\TomTom\Telematics\Parameters\Events $params
 	 */
-	public function updateEventForwardConfig(EventParams $params);
+	public function updateEventForwardConfig($params);
 
 	/**
 	 * 4.7.8 deleteEventForwardConfig
 	 *
 	 * Using deleteEventForwardConfig you can delete an existing event forwarding configuration.
 	 *
-	 * @param string $eventforwardconfiguid
+	 * @param array|\TomTom\Telematics\Parameters\Events $params
 	 */
-	public function deleteEventForwardConfig($eventforwardconfiguid);
+	public function deleteEventForwardConfig($params);
 
 }

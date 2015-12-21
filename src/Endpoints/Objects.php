@@ -4,15 +4,13 @@
  *
  * @filesource   Objects.php
  * @created      13.12.2015
- * @package      TomTom\Telematics\EndpointHandler\Interfaces
+ * @package      TomTom\Telematics\Endpoints
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2015 Smiley
  * @license      MIT
  */
 
 namespace TomTom\Telematics\Endpoints;
-
-use TomTom\Telematics\Parameters\Objects as ObjectParams;
 
 /**
  * 4.2 Objects
@@ -30,18 +28,18 @@ interface Objects{
 	 * Every type defines special properties. These properties are listed by special actions (showVehicleReportExtern etc.),
 	 * whereas this action lists all objects with type independent properties like number, name and description.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Objects $params
+	 * @param array|\TomTom\Telematics\Parameters\Objects $params
 	 */
-	public function showObjectReportExtern(ObjectParams $params = null);
+	public function showObjectReportExtern($params = null);
 
 	/**
 	 * 4.2.2 showVehicleReportExtern
 	 *
 	 * Lists all objects of type "Vehicle".
 	 *
-	 * @param \TomTom\Telematics\Parameters\Objects $params
+	 * @param array|\TomTom\Telematics\Parameters\Objects $params
 	 */
-	public function showVehicleReportExtern(ObjectParams $params = null);
+	public function showVehicleReportExtern($params = null);
 
 	/**
 	 * 4.2.3 showNearestVehicles
@@ -55,36 +53,36 @@ interface Objects{
 	 * 2. Linear distance to the location.
 	 * 3. Object number.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Objects $params
+	 * @param array|\TomTom\Telematics\Parameters\Objects $params
 	 */
-	public function showNearestVehicles(ObjectParams $params);
+	public function showNearestVehicles($params);
 
 	/**
 	 * 4.2.4 showContracts
 	 *
 	 * This action shows contract and device data for selected devices.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Objects $params
+	 * @param array|\TomTom\Telematics\Parameters\Objects $params
 	 */
-	public function showContracts(ObjectParams $params = null);
+	public function showContracts($params = null);
 
 	/**
 	 * 4.2.5 updateVehicle
 	 *
 	 * This action allows the update of vehicle details.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Objects $params
+	 * @param array|\TomTom\Telematics\Parameters\Objects $params
 	 */
-	public function updateVehicle(ObjectParams $params);
+	public function updateVehicle($params);
 
 	/**
 	 * 4.2.6 showObjectGroups
 	 *
 	 * This actions retrieves a list of all object groups.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Objects $params
+	 * @param array|\TomTom\Telematics\Parameters\Objects $params
 	 */
-	public function showObjectGroups(ObjectParams $params = null);
+	public function showObjectGroups($params = null);
 
 	/**
 	 * 4.2.7 showObjectGroupObjects
@@ -92,36 +90,36 @@ interface Objects{
 	 * Lists the assignments of objects to object groups. Each object can be in no, one or more than one group.
 	 * Using both parameters objectgroupname and onbjectno only according matches are returned.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Objects $params
+	 * @param array|\TomTom\Telematics\Parameters\Objects $params
 	 */
-	public function showObjectGroupObjects(ObjectParams $params = null);
+	public function showObjectGroupObjects($params = null);
 
 	/**
 	 * 4.2.8 attachObjectToGroup
 	 *
 	 * This action assigns an object to a specific object group.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Objects $params
+	 * @param array|\TomTom\Telematics\Parameters\Objects $params
 	 */
-	public function attachObjectToGroup(ObjectParams $params);
+	public function attachObjectToGroup($params);
 
 	/**
 	 * 4.2.9 detachObjectFromGroup
 	 *
 	 * This action detached an object from a specific object group.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Objects $params
+	 * @param array|\TomTom\Telematics\Parameters\Objects $params
 	 */
-	public function detachObjectFromGroup(ObjectParams $params);
+	public function detachObjectFromGroup($params);
 
 	/**
 	 * 4.2.10 insertObjectGroup
 	 *
 	 * This action creates an object group. The group name must not start with “sys$”.
 	 *
-	 * @param string $objectgroupname
+	 * @param array|\TomTom\Telematics\Parameters\Objects $params
 	 */
-	public function insertObjectGroup($objectgroupname);
+	public function insertObjectGroup($params);
 
 	/**
 	 * 4.2.11 deleteObjectGroup
@@ -129,9 +127,9 @@ interface Objects{
 	 * This action deletes an object group and the assignments of all objects assigned to that group.
 	 * The objects detached through this action are not being deleted.
 	 *
-	 * @param string $objectgroupname
+	 * @param array|\TomTom\Telematics\Parameters\Objects $params
 	 */
-	public function deleteObjectGroup($objectgroupname);
+	public function deleteObjectGroup($params);
 
 	/**
 	 * 4.2.12 updateObjectGroup
@@ -139,10 +137,9 @@ interface Objects{
 	 * This action allows to update the name of the object group while retaining the assignment
 	 * of objects to that group. The group name must not start with “sys$”.
 	 *
-	 * @param string $objectgroupname
-	 * @param string $objectgroupname_old
+	 * @param array|\TomTom\Telematics\Parameters\Objects $params
 	 */
-	public function updateObjectGroup($objectgroupname, $objectgroupname_old);
+	public function updateObjectGroup($params);
 
 	/**
 	 * 4.2.13 switchOutput
@@ -150,9 +147,9 @@ interface Objects{
 	 * Using switchOutput you can control the digital output of the LINK classic and the
 	 * LINK 510 to be on or off (1 or 0). You first need to enable the digital output of the LINK classic/LINK
 	 *
-	 * @param \TomTom\Telematics\Parameters\Objects $params
+	 * @param array|\TomTom\Telematics\Parameters\Objects $params
 	 */
-	public function switchOutput(ObjectParams $params);
+	public function switchOutput($params);
 
 	/**
 	 * 4.2.14 showWakeupTimers
@@ -162,9 +159,9 @@ interface Objects{
 	 * The TomTom LINK device can be set to wake up at several times per day.
 	 * The times defined apply to all the days that are enabled for wake-up.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Objects $params
+	 * @param array|\TomTom\Telematics\Parameters\Objects $params
 	 */
-	public function showWakeupTimers(ObjectParams $params = null);
+	public function showWakeupTimers($params = null);
 
 	/**
 	 * 4.2.15 updateWakeupTimers
@@ -174,9 +171,9 @@ interface Objects{
 	 * The TomTom LINK device can be set to wake up at several times per day.
 	 * The times defined apply to all the days that are enabled for wake-up.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Objects $params
+	 * @param array|\TomTom\Telematics\Parameters\Objects $params
 	 */
-	public function updateWakeupTimers(ObjectParams $params);
+	public function updateWakeupTimers($params);
 
 	/**
 	 * 4.2.16 getObjectFeatures
@@ -184,17 +181,17 @@ interface Objects{
 	 * getObjectFeatures returns all features (additional services) that are booked for the object.
 	 * If you specify a feature, getObjectFeatures returns all objects that have the indicated feature booked.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Objects $params
+	 * @param array|\TomTom\Telematics\Parameters\Objects $params
 	 */
-	public function getObjectFeatures(ObjectParams $params = null);
+	public function getObjectFeatures($params = null);
 
 	/**
 	 * 4.2.17 updateContractInfo
 	 *
 	 * Using updateContractInfo you can update data that refer to the contract.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Objects $params
+	 * @param array|\TomTom\Telematics\Parameters\Objects $params
 	 */
-	public function updateContractInfo(ObjectParams $params);
+	public function updateContractInfo($params);
 
 }

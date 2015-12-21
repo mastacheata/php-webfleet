@@ -4,16 +4,13 @@
  *
  * @filesource   Messages.php
  * @created      13.12.2015
- * @package      TomTom\Telematics\EndpointHandler\Interfaces
+ * @package      TomTom\Telematics\Endpoints
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2015 Smiley
  * @license      MIT
  */
 
 namespace TomTom\Telematics\Endpoints;
-
-use TomTom\Telematics\Parameters\DateRangeFilter;
-use TomTom\Telematics\Parameters\Messages as MessageParams;
 
 /**
  * 4.4 Messages
@@ -27,18 +24,18 @@ interface Messages{
 	 * The message is sent asynchronously and therefore a positive result of this operation
 	 * does not indicate that the message was sent to the object successfully
 	 *
-	 * @param \TomTom\Telematics\Parameters\Messages $params
+	 * @param array|\TomTom\Telematics\Parameters\Messages $params
 	 */
-	public function sendTextMessageExtern(MessageParams $params);
+	public function sendTextMessageExtern($params);
 
 	/**
 	 * 4.4.2 clearTextMessagesExtern
 	 *
 	 * Removes all text messages from the device.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Messages $params
+	 * @param array|\TomTom\Telematics\Parameters\Messages $params
 	 */
-	public function clearTextMessagesExtern(MessageParams $params);
+	public function clearTextMessagesExtern($params);
 
 	/**
 	 * 4.4.3 showMessages
@@ -47,10 +44,10 @@ interface Messages{
 	 * The maximum result size is limited to 500 entries.
 	 * To get an additional batch of messages the date range parameter has to be changed.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Messages        $params
-	 * @param \TomTom\Telematics\Parameters\DateRangeFilter $dateRangeParams
+	 * @param array|\TomTom\Telematics\Parameters\Messages        $params
+	 * @param array|\TomTom\Telematics\Parameters\DateRangeFilter $dateRangeParams
 	 */
-	public function showMessages(MessageParams $params = null, DateRangeFilter $dateRangeParams = null);
+	public function showMessages($params = null, $dateRangeParams = null);
 
 	/**
 	 * 4.4.4 sendBinaryMessage
@@ -65,9 +62,9 @@ interface Messages{
 	 * To run sendBinaryMessage an API key is required.
 	 * This action is supported on TomTom PRO 82xx devices only.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Messages $params
+	 * @param array|\TomTom\Telematics\Parameters\Messages $params
 	 */
-	public function sendBinaryMessage(MessageParams $params);
+	public function sendBinaryMessage($params);
 
 	/**
 	 * 4.4.5 resetBinaryMessages
@@ -81,9 +78,9 @@ interface Messages{
 	 *
 	 * This action is supported on TomTom PRO 82xx devices only.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Messages $params
+	 * @param array|\TomTom\Telematics\Parameters\Messages $params
 	 */
-	public function resetBinaryMessages(MessageParams $params);
+	public function resetBinaryMessages($params);
 
 	/**
 	 * 4.4.6 clearBinaryMessages
@@ -95,8 +92,8 @@ interface Messages{
 	 *
 	 * This action is supported on TomTom PRO 82xx devices only.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Messages $params
+	 * @param array|\TomTom\Telematics\Parameters\Messages $params
 	 */
-	public function clearBinaryMessages(MessageParams $params);
+	public function clearBinaryMessages($params);
 
 }

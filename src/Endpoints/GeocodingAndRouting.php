@@ -4,15 +4,13 @@
  *
  * @filesource   GeocodingAndRouting.php
  * @created      13.12.2015
- * @package      TomTom\Telematics\EndpointHandler\Interfaces
+ * @package      TomTom\Telematics\Endpoints
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2015 Smiley
  * @license      MIT
  */
 
 namespace TomTom\Telematics\Endpoints;
-
-use TomTom\Telematics\Parameters\GeocodingAndRouting as GeocodingAndRoutingParams;
 
 /**
  * 4.10 Geocoding and routing
@@ -24,9 +22,9 @@ interface GeocodingAndRouting{
 	 *
 	 * Geocodes the address provided as request parameters and returns all possible matches, one per line.
 	 *
-	 * @param \TomTom\Telematics\Parameters\GeocodingAndRouting $params
+	 * @param array|\TomTom\Telematics\Parameters\GeocodingAndRouting $params
 	 */
-	public function geocodeAddress(GeocodingAndRoutingParams $params);
+	public function geocodeAddress($params);
 
 	/**
 	 * 4.10.2 calcRouteSimpleExtern
@@ -35,8 +33,8 @@ interface GeocodingAndRouting{
 	 * resulting estimated time of arrival for a specific route-type.
 	 * Optionally IQ Routes and/or HD Traffic information can be included.
 	 *
-	 * @param \TomTom\Telematics\Parameters\GeocodingAndRouting $params
+	 * @param array|\TomTom\Telematics\Parameters\GeocodingAndRouting $params
 	 */
-	public function calcRouteSimpleExtern(GeocodingAndRoutingParams $params);
+	public function calcRouteSimpleExtern($params);
 
 }

@@ -4,15 +4,13 @@
  *
  * @filesource   LINKconnect.php
  * @created      13.12.2015
- * @package      TomTom\Telematics\EndpointHandler\Interfaces
+ * @package      TomTom\Telematics\Endpoints
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2015 Smiley
  * @license      MIT
  */
 
 namespace TomTom\Telematics\Endpoints;
-
-use TomTom\Telematics\Parameters\LINKconnect as LINKconnectParams;
 
 /**
  * 4.16 LINK.connect
@@ -36,9 +34,9 @@ interface LINKconnect{
 	 * To track the status of the opaque payload message once sent, please use the
 	 * WEBFLEET.connect Queue Service.
 	 *
-	 * @param \TomTom\Telematics\Parameters\LINKconnect $params
+	 * @param array|\TomTom\Telematics\Parameters\LINKconnect $params
 	 */
-	public function sendAuxDeviceData(LINKconnectParams $params);
+	public function sendAuxDeviceData($params);
 
 	/**
 	 * 4.16.3 getLocalAuxDeviceConfig
@@ -46,9 +44,9 @@ interface LINKconnect{
 	 * getLocalAuxDeviceConfig returns the stored and applicable configuration of a
 	 * WEBFLEET unit regarding Bluetooth connectivity.
 	 *
-	 * @param \TomTom\Telematics\Parameters\LINKconnect $params
+	 * @param array|\TomTom\Telematics\Parameters\LINKconnect $params
 	 */
-	public function getLocalAuxDeviceConfig(LINKconnectParams $params);
+	public function getLocalAuxDeviceConfig($params);
 
 	/**
 	 * 4.16.4 configureLocalAuxDevice
@@ -58,9 +56,9 @@ interface LINKconnect{
 	 * specific. All configuration parameters are optional. Parameters not specified in the
 	 * request will not be changed.
 	 *
-	 * @param \TomTom\Telematics\Parameters\LINKconnect $params
+	 * @param array|\TomTom\Telematics\Parameters\LINKconnect $params
 	 */
-	public function configureLocalAuxDevice(LINKconnectParams $params);
+	public function configureLocalAuxDevice($params);
 
 	/**
 	 * 4.16.5 getRemoteAuxDeviceConfig
@@ -68,9 +66,9 @@ interface LINKconnect{
 	 * getRemoteAuxDeviceConfig returns the stored and applicable configuration of a
 	 * WEBFLEET unit regarding Bluetooth remote aux devices.
 	 *
-	 * @param \TomTom\Telematics\Parameters\LINKconnect $params
+	 * @param array|\TomTom\Telematics\Parameters\LINKconnect $params
 	 */
-	public function getRemoteAuxDeviceConfig(LINKconnectParams $params);
+	public function getRemoteAuxDeviceConfig($params);
 
 	/**
 	 * 4.16.6 configureRemoteAuxDevice
@@ -81,18 +79,18 @@ interface LINKconnect{
 	 * specified in the request will not be changed. To remove a value specify null or use
 	 * an empty parameter value.
 	 *
-	 * @param \TomTom\Telematics\Parameters\LINKconnect $params
+	 * @param array|\TomTom\Telematics\Parameters\LINKconnect $params
 	 */
-	public function configureRemoteAuxDevice(LINKconnectParams $params);
+	public function configureRemoteAuxDevice($params);
 
 	/**
 	 * 4.16.7 removeRemoteAuxDeviceConfig
 	 *
 	 * removeRemoteAuxDeviceConfig removes a remote aux device configuration.
 	 *
-	 * @param \TomTom\Telematics\Parameters\LINKconnect $params
+	 * @param array|\TomTom\Telematics\Parameters\LINKconnect $params
 	 */
-	public function removeRemoteAuxDeviceConfig(LINKconnectParams $params);
+	public function removeRemoteAuxDeviceConfig($params);
 
 	/**
 	 * 4.16.8 clearAuxDeviceDataQueue
@@ -102,9 +100,9 @@ interface LINKconnect{
 	 * anymore or that are unlikely to connect anymore. The LINK does not remove
 	 * outgoing data by itself because it cannot decide if a third party device will connect sometime.
 	 *
-	 * @param \TomTom\Telematics\Parameters\LINKconnect $params
+	 * @param array|\TomTom\Telematics\Parameters\LINKconnect $params
 	 */
-	public function clearAuxDeviceDataQueue(LINKconnectParams $params);
+	public function clearAuxDeviceDataQueue($params);
 
 	/**
 	 * 4.16.9 resetAuxDeviceData
@@ -118,8 +116,8 @@ interface LINKconnect{
 	 * send is still important from the view of LINK.connect integration solution, the
 	 * integration server backend should repeat the sendAuxDeviceData operation after the reset.
 	 *
-	 * @param \TomTom\Telematics\Parameters\LINKconnect $params
+	 * @param array|\TomTom\Telematics\Parameters\LINKconnect $params
 	 */
-	public function resetAuxDeviceData(LINKconnectParams $params);
+	public function resetAuxDeviceData($params);
 
 }

@@ -4,15 +4,13 @@
  *
  * @filesource   UserManagement.php
  * @created      13.12.2015
- * @package      TomTom\Telematics\EndpointHandler\Interfaces
+ * @package      TomTom\Telematics\Endpoints
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2015 Smiley
  * @license      MIT
  */
 
 namespace TomTom\Telematics\Endpoints;
-
-use TomTom\Telematics\Parameters\UserManagement as UserManagementParams;
 
 /**
  * 4.12 User management
@@ -24,19 +22,18 @@ interface UserManagement{
 	 *
 	 * This actions returns a list of all existing users within the account along with the last recorded login time.
 	 *
-	 * @param \TomTom\Telematics\Parameters\UserManagement $params
+	 * @param array|\TomTom\Telematics\Parameters\UserManagement $params
 	 */
-	public function showUsers(UserManagementParams $params = null);
+	public function showUsers($params = null);
 
 	/**
 	 * 4.12.2 changePassword
 	 *
 	 * Using changePassword you can change the password of your own user account.
 	 *
-	 * @param string $oldpassword
-	 * @param string $newpassword
+	 * @param array|\TomTom\Telematics\Parameters\UserManagement $params
 	 */
-	public function changePassword($oldpassword, $newpassword);
+	public function changePassword($params);
 
 	/**
 	 * 4.12.3 insertUser
@@ -45,9 +42,9 @@ interface UserManagement{
 	 *
 	 * Note: This action can only be executed by users, that have the "Administrator" profile.
 	 *
-	 * @param \TomTom\Telematics\Parameters\UserManagement $params
+	 * @param array|\TomTom\Telematics\Parameters\UserManagement $params
 	 */
-	public function insertUser(UserManagementParams $params);
+	public function insertUser($params);
 
 	/**
 	 * 4.12.4 updateUser
@@ -56,9 +53,9 @@ interface UserManagement{
 	 *
 	 * Note: This action can only be executed by users, that have the "Administrator" profile.
 	 *
-	 * @param \TomTom\Telematics\Parameters\UserManagement $params
+	 * @param array|\TomTom\Telematics\Parameters\UserManagement $params
 	 */
-	public function updateUser(UserManagementParams $params);
+	public function updateUser($params);
 
 	/**
 	 * 4.12.5 deleteUser
@@ -67,9 +64,9 @@ interface UserManagement{
 	 *
 	 * Note: This action can only be executed by users, that have the "Administrator" profile.
 	 *
-	 * @param \TomTom\Telematics\Parameters\UserManagement $params
+	 * @param array|\TomTom\Telematics\Parameters\UserManagement $params
 	 */
-	public function deleteUser(UserManagementParams $params);
+	public function deleteUser($params);
 
 	/**
 	 * 4.12.6 getUserRights
@@ -79,9 +76,9 @@ interface UserManagement{
 	 *
 	 * Note: This action can only be executed by users, that have the "Administrator" profile.
 	 *
-	 * @param \TomTom\Telematics\Parameters\UserManagement $params
+	 * @param array|\TomTom\Telematics\Parameters\UserManagement $params
 	 */
-	public function getUserRights(UserManagementParams $params);
+	public function getUserRights($params);
 
 	/**
 	 * 4.12.7 setUserRight
@@ -93,9 +90,9 @@ interface UserManagement{
 	 *
 	 * Note: This action can only be executed by users, that have the "Administrator" profile.
 	 *
-	 * @param \TomTom\Telematics\Parameters\UserManagement $params
+	 * @param array|\TomTom\Telematics\Parameters\UserManagement $params
 	 */
-	public function setUserRight(UserManagementParams $params);
+	public function setUserRight($params);
 
 	/**
 	 * 4.12.8 resetUserRights
@@ -105,9 +102,9 @@ interface UserManagement{
 	 *
 	 * Note: This action can only be executed by users, that have the "Administrator" profile.
 	 *
-	 * @param \TomTom\Telematics\Parameters\UserManagement $params
+	 * @param array|\TomTom\Telematics\Parameters\UserManagement $params
 	 */
-	public function resetUserRights(UserManagementParams $params);
+	public function resetUserRights($params);
 
 	/**
 	 * 4.12.9 removeUserRight
@@ -119,8 +116,8 @@ interface UserManagement{
 	 *
 	 * Note: This action can only be executed by users, that have the "Administrator" profile.
 	 *
-	 * @param \TomTom\Telematics\Parameters\UserManagement $params
+	 * @param array|\TomTom\Telematics\Parameters\UserManagement $params
 	 */
-	public function removeUserRight(UserManagementParams $params);
+	public function removeUserRight($params);
 
 }

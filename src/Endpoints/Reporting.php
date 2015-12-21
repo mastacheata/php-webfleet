@@ -4,16 +4,13 @@
  *
  * @filesource   Reporting.php
  * @created      13.12.2015
- * @package      TomTom\Telematics\EndpointHandler\Interfaces
+ * @package      TomTom\Telematics\Endpoints
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2015 Smiley
  * @license      MIT
  */
 
 namespace TomTom\Telematics\Endpoints;
-
-use TomTom\Telematics\Parameters\DateRangeFilter;
-use TomTom\Telematics\Parameters\Reporting as ReportingParams;
 
 /**
  * 4.14 Reporting
@@ -30,9 +27,10 @@ interface Reporting{
 	 * It does not fetch the report data (PDF or CSV). Use getArchivedReport to retrieve
 	 * the actual PDF or CSV files.
 	 *
-	 * @param \TomTom\Telematics\Parameters\DateRangeFilter $dateRangeFilter
+	 * @param array|\TomTom\Telematics\Parameters\Reporting       $params
+	 * @param array|\TomTom\Telematics\Parameters\DateRangeFilter $dateRangeFilter
 	 */
-	public function getArchivedReportList(DateRangeFilter $dateRangeFilter);
+	public function getArchivedReportList($params = null, $dateRangeFilter = null);
 
 	/**
 	 * 4.14.2 getArchivedReport
@@ -40,9 +38,9 @@ interface Reporting{
 	 * Using getArchivedReport you can retrieve a PDF or CSV report that is stored in
 	 * the WEBFLEET Reports Archive of a specific user.
 	 *
-	 * @param int $reportid
+	 * @param array|\TomTom\Telematics\Parameters\Reporting       $params
 	 */
-	public function getArchivedReport($reportid);
+	public function getArchivedReport($params);
 
 	/**
 	 * 4.14.3 deleteArchivedReport
@@ -50,9 +48,9 @@ interface Reporting{
 	 * Using deleteArchivedReport you can delete an archived report file from the
 	 * WEBFLEET Reports Archive of a specific user.
 	 *
-	 * @param int $reportid
+	 * @param array|\TomTom\Telematics\Parameters\Reporting       $params
 	 */
-	public function deleteArchivedReport($reportid);
+	public function deleteArchivedReport($params);
 
 	/**
 	 * 4.14.4 getReportList
@@ -61,19 +59,19 @@ interface Reporting{
 	 * are assigned to the current WEBFLEET user. Reports can be created on demand
 	 * using sendReportViaMail or createReport.
 	 *
-	 * @param string $reporttype (100)
+	 * @param array|\TomTom\Telematics\Parameters\Reporting       $params
 	 */
-	public function getReportList($reporttype);
+	public function getReportList($params);
 
 	/**
 	 * 4.14.5 createReport
 	 *
 	 * Using createReport you can create a new PDF or CSV report on demand.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Reporting       $params
-	 * @param \TomTom\Telematics\Parameters\DateRangeFilter $dateRangeFilter
+	 * @param array|\TomTom\Telematics\Parameters\Reporting       $params
+	 * @param array|\TomTom\Telematics\Parameters\DateRangeFilter $dateRangeFilter
 	 */
-	public function createReport(ReportingParams $params, DateRangeFilter $dateRangeFilter);
+	public function createReport($params, $dateRangeFilter);
 
 	/**
 	 * 4.14.6 sendReportViaMail
@@ -81,9 +79,9 @@ interface Reporting{
 	 * Using sendReportViaMail you can create a new PDF or CSV report on demand
 	 * and send it to an indicated email address.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Reporting       $params
-	 * @param \TomTom\Telematics\Parameters\DateRangeFilter $dateRangeFilter
+	 * @param array|\TomTom\Telematics\Parameters\Reporting       $params
+	 * @param array|\TomTom\Telematics\Parameters\DateRangeFilter $dateRangeFilter
 	 */
-	public function sendReportViaMail(ReportingParams $params, DateRangeFilter $dateRangeFilter);
+	public function sendReportViaMail($params, $dateRangeFilter);
 
 }

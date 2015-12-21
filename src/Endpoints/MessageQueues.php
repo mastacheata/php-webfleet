@@ -4,7 +4,7 @@
  *
  * @filesource   MessageQueues.php
  * @created      13.12.2015
- * @package      TomTom\Telematics\EndpointHandler\Interfaces
+ * @package      TomTom\Telematics\Endpoints
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2015 Smiley
  * @license      MIT
@@ -33,18 +33,18 @@ interface MessageQueues{
 	 * 8  – Text messages
 	 * 15 – Third party messages (LINK.connect, ...)
 	 *
-	 * @param int $msgclass
+	 * @param array|\TomTom\Telematics\Parameters\MessageQueues $params
 	 */
-	public function createQueueExtern($msgclass = 0);
+	public function createQueueExtern($params = null);
 
 	/**
 	 * 4.1.3 deleteQueueExtern
 	 *
 	 * Deletes an existing queue.
 	 *
-	 * @param int $msgclass
+	 * @param array|\TomTom\Telematics\Parameters\MessageQueues $params
 	 */
-	public function deleteQueueExtern($msgclass = 0);
+	public function deleteQueueExtern($params = null);
 
 	/**
 	 * 4.1.4 popQueueMessagesExtern
@@ -66,17 +66,17 @@ interface MessageQueues{
 	 * The resulting data set is delivered in the language you have chosen in the WEBFLEET account
 	 * and not on the language you have indicated in the lang parameter.
 	 *
-	 * @param int $msgclass
+	 * @param array|\TomTom\Telematics\Parameters\MessageQueues $params
 	 */
-	public function popQueueMessagesExtern($msgclass = 0);
+	public function popQueueMessagesExtern($params = null);
 
 	/**
 	 * 4.1.5 ackQueueMessagesExtern
 	 *
 	 * Acknowledges outstanding messages retrieved with a previous call to popQueueMessagesExtern.
 	 *
-	 * @param int $msgclass
+	 * @param array|\TomTom\Telematics\Parameters\MessageQueues $params
 	 */
-	public function ackQueueMessagesExtern($msgclass = 0);
+	public function ackQueueMessagesExtern($params = null);
 
 }

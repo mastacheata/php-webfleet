@@ -4,15 +4,13 @@
  *
  * @filesource   Drivers.php
  * @created      13.12.2015
- * @package      TomTom\Telematics\EndpointHandler\Interfaces
+ * @package      TomTom\Telematics\Endpoints
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2015 Smiley
  * @license      MIT
  */
 
 namespace TomTom\Telematics\Endpoints;
-
-use TomTom\Telematics\Parameters\Drivers as DriverParams;
 
 /**
  * 4.5 Drivers
@@ -24,36 +22,36 @@ interface Drivers{
 	 *
 	 * Lists all drivers matching the indicated parameters and filters.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Drivers $params
+	 * @param array|\TomTom\Telematics\Parameters\Drivers $params
 	 */
-	public function showDriverReportExtern(DriverParams $params = null);
+	public function showDriverReportExtern($params = null);
 
 	/**
 	 * 4.5.3 insertDriverExtern
 	 *
 	 * This action creates a driver.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Drivers $params
+	 * @param array|\TomTom\Telematics\Parameters\Drivers $params
 	 */
-	public function insertDriverExtern(DriverParams $params);
+	public function insertDriverExtern($params);
 
 	/**
 	 * 4.5.4 updateDriverExtern
 	 *
 	 * This action updates driver details.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Drivers $params
+	 * @param array|\TomTom\Telematics\Parameters\Drivers $params
 	 */
-	public function updateDriverExtern(DriverParams $params);
+	public function updateDriverExtern($params);
 
 	/**
 	 * 4.5.5 deleteDriverExtern
 	 *
 	 * This action deletes the indicated driver.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Drivers $params
+	 * @param array|\TomTom\Telematics\Parameters\Drivers $params
 	 */
-	public function deleteDriverExtern(DriverParams $params);
+	public function deleteDriverExtern($params);
 
 	/**
 	 * 4.5.6 showOptiDriveIndicator
@@ -66,18 +64,18 @@ interface Drivers{
 	 * The aggregated results produced by showOptiDriveIndicator are based on information
 	 * for each driver across multiple vehicles.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Drivers $params
+	 * @param array|\TomTom\Telematics\Parameters\Drivers $params
 	 */
-	public function showOptiDriveIndicator(DriverParams $params = null);
+	public function showOptiDriveIndicator($params = null);
 
 	/**
 	 * 4.5.7 showDriverGroups
 	 *
 	 * This action retrieves a list of all driver groups.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Drivers $params
+	 * @param array|\TomTom\Telematics\Parameters\Drivers $params
 	 */
-	public function showDriverGroups(DriverParams $params = null);
+	public function showDriverGroups($params = null);
 
 	/**
 	 * 4.5.8 showDriverGroupDrivers
@@ -87,27 +85,27 @@ interface Drivers{
 	 *
 	 * Using either or both parameters driverno and drivergroupname only according matches are returned.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Drivers $params
+	 * @param array|\TomTom\Telematics\Parameters\Drivers $params
 	 */
-	public function showDriverGroupDrivers(DriverParams $params);
+	public function showDriverGroupDrivers($params);
 
 	/**
 	 * 4.5.9 attachDriverToGroup
 	 *
 	 * This action assigns a driver to a specific group.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Drivers $params
+	 * @param array|\TomTom\Telematics\Parameters\Drivers $params
 	 */
-	public function attachDriverToGroup(DriverParams $params);
+	public function attachDriverToGroup($params);
 
 	/**
 	 * 4.5.10 detachDriverFromGroup
 	 *
 	 * This action detaches a driver from a specific driver group.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Drivers $params
+	 * @param array|\TomTom\Telematics\Parameters\Drivers $params
 	 */
-	public function detachDriverFromGroup(DriverParams $params);
+	public function detachDriverFromGroup($params);
 
 	/**
 	 * 4.5.11 insertDriverGroup
@@ -116,9 +114,9 @@ interface Drivers{
 	 *
 	 * The group name must not start with "sys$".
 	 *
-	 * @param string $drivergroupname
+	 * @param array|\TomTom\Telematics\Parameters\Drivers $params
 	 */
-	public function insertDriverGroup($drivergroupname);
+	public function insertDriverGroup($params);
 
 	/**
 	 * 4.5.12 deleteDriverGroup
@@ -126,9 +124,9 @@ interface Drivers{
 	 * This action deletes a driver group and the assignments of all drivers to that group.
 	 * The drivers detached through this action are not being deleted.
 	 *
-	 * @param string $drivergroupname
+	 * @param array|\TomTom\Telematics\Parameters\Drivers $params
 	 */
-	public function deleteDriverGroup($drivergroupname);
+	public function deleteDriverGroup($params);
 
 	/**
 	 * 4.5.13 updateDriverGroup
@@ -138,10 +136,9 @@ interface Drivers{
 	 *
 	 * The group name must not start with "sys$".
 	 *
-	 * @param $drivergroupname
-	 * @param $drivergroupname_old
+	 * @param array|\TomTom\Telematics\Parameters\Drivers $params
 	 */
-	public function updateDriverGroup($drivergroupname, $drivergroupname_old);
+	public function updateDriverGroup($params);
 
 	/**
 	 * 4.5.14 attachDriverToVehicle
@@ -155,9 +152,9 @@ interface Drivers{
 	 * the respective vehicle. This can be the case if the driver for example logs on to a vehicle
 	 * by using a TomTom navigation device or a digital tachograph.
 	 *
-	 * @param \TomTom\Telematics\Parameters\Drivers $params
+	 * @param array|\TomTom\Telematics\Parameters\Drivers $params
 	 */
-	public function attachDriverToVehicle(DriverParams $params);
+	public function attachDriverToVehicle($params);
 
 	/**
 	 * 4.5.15 detachDriverFromVehicle
@@ -168,8 +165,8 @@ interface Drivers{
 	 * device or the digital tachograph.
 	 *
 	 *
-	 * @param \TomTom\Telematics\Parameters\Drivers $params
+	 * @param array|\TomTom\Telematics\Parameters\Drivers $params
 	 */
-	public function detachDriverFromVehicle(DriverParams $params);
+	public function detachDriverFromVehicle($params);
 
 }

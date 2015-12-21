@@ -4,16 +4,13 @@
  *
  * @filesource   TripsAndWorkingTimes.php
  * @created      13.12.2015
- * @package      TomTom\Telematics\EndpointHandler\Interfaces
+ * @package      TomTom\Telematics\Endpoints
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2015 Smiley
  * @license      MIT
  */
 
 namespace TomTom\Telematics\Endpoints;
-
-use TomTom\Telematics\Parameters\DateRangeFilter;
-use TomTom\Telematics\Parameters\TripsAndWorkingTimes as TripsAndWorkingTimesParams;
 
 /**
  * 4.8 Trips and working times
@@ -28,20 +25,20 @@ interface TripsAndWorkingTimes{
 	 * result is limited to 10000 entries, if the continuous replication is used.
 	 * The limit can be adjusted per account on request.
 	 *
-	 * @param \TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
-	 * @param \TomTom\Telematics\Parameters\DateRangeFilter      $dateRangeFilterParams
+	 * @param array|\TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
+	 * @param array|\TomTom\Telematics\Parameters\DateRangeFilter      $dateRangeFilterParams
 	 */
-	public function showTripReportExtern(TripsAndWorkingTimesParams $params = null, DateRangeFilter $dateRangeFilterParams = null);
+	public function showTripReportExtern($params = null, $dateRangeFilterParams = null);
 
 	/**
 	 * 4.8.2 showTripSummaryReportExtern
 	 *
 	 * This action provides general information about a trip.
 	 *
-	 * @param \TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
-	 * @param \TomTom\Telematics\Parameters\DateRangeFilter      $dateRangeFilterParams
+	 * @param array|\TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
+	 * @param array|\TomTom\Telematics\Parameters\DateRangeFilter      $dateRangeFilterParams
 	 */
-	public function showTripSummaryReportExtern(TripsAndWorkingTimesParams $params = null, DateRangeFilter $dateRangeFilterParams = null);
+	public function showTripSummaryReportExtern($params = null, $dateRangeFilterParams = null);
 
 	/**
 	 * 4.8.3 showTracks
@@ -49,10 +46,10 @@ interface TripsAndWorkingTimes{
 	 * This action retrieves a list of positions of a vehicle for a defined period.
 	 * If certain information was not available the corresponding results can be empty.
 	 *
-	 * @param \TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
-	 * @param \TomTom\Telematics\Parameters\DateRangeFilter      $dateRangeFilterParams
+	 * @param array|\TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
+	 * @param array|\TomTom\Telematics\Parameters\DateRangeFilter      $dateRangeFilterParams
 	 */
-	public function showTracks(TripsAndWorkingTimesParams $params = null, DateRangeFilter $dateRangeFilterParams = null);
+	public function showTracks($params = null, $dateRangeFilterParams = null);
 
 	/**
 	 * 4.8.4 updateLogbook
@@ -63,9 +60,9 @@ interface TripsAndWorkingTimes{
 	 * In addition to the specific parameters listed below the parameters
 	 * modifiedby and modifiedon are being automatically stored.
 	 *
-	 * @param \TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
+	 * @param array|\TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
 	 */
-	public function updateLogbook(TripsAndWorkingTimesParams $params);
+	public function updateLogbook($params);
 
 	/**
 	 * 4.8.5 showLogbook
@@ -76,10 +73,10 @@ interface TripsAndWorkingTimes{
 	 *
 	 * The date range filter applies to the trip end date/time, not the date/time when the trip record was created.
 	 *
-	 * @param \TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
-	 * @param \TomTom\Telematics\Parameters\DateRangeFilter      $dateRangeFilterParams
+	 * @param array|\TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
+	 * @param array|\TomTom\Telematics\Parameters\DateRangeFilter      $dateRangeFilterParams
 	 */
-	public function showLogbook(TripsAndWorkingTimesParams $params = null, DateRangeFilter $dateRangeFilterParams = null);
+	public function showLogbook($params = null, $dateRangeFilterParams = null);
 
 	/**
 	 * 4.8.6 showLogbookHistory
@@ -87,10 +84,10 @@ interface TripsAndWorkingTimes{
 	 * This action returns a logbook history showing logbook edits including the old and new values.
 	 * Change history records are available as of 1st of January 2011.
 	 *
-	 * @param \TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
-	 * @param \TomTom\Telematics\Parameters\DateRangeFilter      $dateRangeFilterParams
+	 * @param array|\TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
+	 * @param array|\TomTom\Telematics\Parameters\DateRangeFilter      $dateRangeFilterParams
 	 */
-	public function showLogbookHistory(TripsAndWorkingTimesParams $params = null, DateRangeFilter $dateRangeFilterParams = null);
+	public function showLogbookHistory($params = null, $dateRangeFilterParams = null);
 
 	/**
 	 * 4.8.7 updateLogbookMode
@@ -111,9 +108,9 @@ interface TripsAndWorkingTimes{
 	 *    3. Go to the Basic settings tab and select Logbook under Function.
 	 * - You cannot change the logbook mode when a digital tachograph is connected to the LINK device.
 	 *
-	 * @param \TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
+	 * @param array|\TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
 	 */
-	public function updateLogbookMode(TripsAndWorkingTimesParams $params);
+	public function updateLogbookMode($params);
 
 	/**
 	 * 4.8.8 showWorkingTimes
@@ -128,20 +125,20 @@ interface TripsAndWorkingTimes{
 	 * - At least one of the filter parameters objectno or driverno must be provided.
 	 * - The time period covered by date range filter (Date range filter parameters) may not be greater than 1 month.
 	 *
-	 * @param \TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
-	 * @param \TomTom\Telematics\Parameters\DateRangeFilter      $dateRangeFilterParams
+	 * @param array|\TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
+	 * @param array|\TomTom\Telematics\Parameters\DateRangeFilter      $dateRangeFilterParams
 	 */
-	public function showWorkingTimes(TripsAndWorkingTimesParams $params, DateRangeFilter $dateRangeFilterParams);
+	public function showWorkingTimes($params, $dateRangeFilterParams);
 
 	/**
 	 * 4.8.9 showStandStills
 	 *
 	 * This actions shows a list of all stops for a certain vehicle for a specified period.
 	 *
-	 * @param \TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
-	 * @param \TomTom\Telematics\Parameters\DateRangeFilter      $dateRangeFilterParams
+	 * @param array|\TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
+	 * @param array|\TomTom\Telematics\Parameters\DateRangeFilter      $dateRangeFilterParams
 	 */
-	public function showStandStills(TripsAndWorkingTimesParams $params, DateRangeFilter $dateRangeFilterParams);
+	public function showStandStills($params, $dateRangeFilterParams);
 
 	/**
 	 * 4.8.10 showIdleExceptions
@@ -152,10 +149,10 @@ interface TripsAndWorkingTimes{
 	 * The report shows all idle exceptions that have ended within the period defined with
 	 * the start_time and end_time.
 	 *
-	 * @param \TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
-	 * @param \TomTom\Telematics\Parameters\DateRangeFilter      $dateRangeFilterParams
+	 * @param array|\TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
+	 * @param array|\TomTom\Telematics\Parameters\DateRangeFilter      $dateRangeFilterParams
 	 */
-	public function showIdleExceptions(TripsAndWorkingTimesParams $params, DateRangeFilter $dateRangeFilterParams);
+	public function showIdleExceptions($params, $dateRangeFilterParams);
 
 	/**
 	 * 4.8.11 getObjectKPIs
@@ -165,10 +162,10 @@ interface TripsAndWorkingTimes{
 	 *
 	 * Note: getObjectKPIs is the successor action of getKPIs. All calls to getKPIs will be redirected to getObjectKPIs.
 	 *
-	 * @param \TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
-	 * @param \TomTom\Telematics\Parameters\DateRangeFilter      $dateRangeFilterParams
+	 * @param array|\TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
+	 * @param array|\TomTom\Telematics\Parameters\DateRangeFilter      $dateRangeFilterParams
 	 */
-	public function getObjectKPIs(TripsAndWorkingTimesParams $params, DateRangeFilter $dateRangeFilterParams);
+	public function getObjectKPIs($params, $dateRangeFilterParams);
 
 	/**
 	 * 4.8.12 getDriverKPIs
@@ -176,10 +173,10 @@ interface TripsAndWorkingTimes{
 	 * Using getDriverKPIs you can retrieve one or more KPIs (Key Performance Indicators) specific to an individual
 	 * driver.
 	 *
-	 * @param \TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
-	 * @param \TomTom\Telematics\Parameters\DateRangeFilter      $dateRangeFilterParams
+	 * @param array|\TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
+	 * @param array|\TomTom\Telematics\Parameters\DateRangeFilter      $dateRangeFilterParams
 	 */
-	public function getDriverKPIs(TripsAndWorkingTimesParams $params, DateRangeFilter $dateRangeFilterParams);
+	public function getDriverKPIs($params, $dateRangeFilterParams);
 
 	/**
 	 * 4.8.13 getRemainingDrivingTimesEU
@@ -198,8 +195,8 @@ interface TripsAndWorkingTimes{
 	 * legislation and it is you responsibility to verify remaining driving times and any
 	 * applicable national legislation.
 	 *
-	 * @param \TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
+	 * @param array|\TomTom\Telematics\Parameters\TripsAndWorkingTimes $params
 	 */
-	public function getRemainingDrivingTimesEU(TripsAndWorkingTimesParams $params = null);
+	public function getRemainingDrivingTimesEU($params = null);
 
 }
