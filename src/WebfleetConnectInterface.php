@@ -49,6 +49,7 @@ interface WebfleetConnectInterface extends
 	VehicleMaintenance,       // 4.13
 	Reporting,                // 4.14
 	Areas,                    // 4.15
-	LINKconnect               // 4.16{
+	LINKconnect               // 4.16
+{
 
 }
