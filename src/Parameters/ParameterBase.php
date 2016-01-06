@@ -23,7 +23,9 @@ class ParameterBase{
 		if(is_array($params) && !empty($params)){
 
 			foreach($params as $key => $value){
-				$this->{$key} = $value;
+				if(isset($this->{$key})){
+					$this->{$key} = $value;
+				}
 			}
 
 		}
