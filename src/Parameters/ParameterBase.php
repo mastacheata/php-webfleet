@@ -23,7 +23,7 @@ class ParameterBase{
 		if(is_array($params) && !empty($params)){
 
 			foreach($params as $key => $value){
-				if(isset($this->{$key})){
+				if(property_exists($this, $key)){
 					$this->{$key} = $value;
 				}
 			}
