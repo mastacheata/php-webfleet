@@ -32,4 +32,42 @@ class ParameterBase{
 
 	}
 
+	/*
+		public function __set($name, $value){
+
+			$name = strtolower($name);
+
+			// todo
+			switch($name){
+				case 'rangefrom_string':
+				case 'rangeto_string':
+					$this->{$name} = $this->fromTimestamp($value);
+					break;
+				default:
+					$this->{$name} =  $value;
+					break;
+			}
+
+		}
+
+		public function __get($name){
+			return $this->{$name};
+		}
+
+		// todo
+		private function fromTimestamp($timestamp){
+
+			if(is_int($timestamp)){
+				return $timestamp;
+			}
+
+			$timestamp = strtotime($timestamp);
+
+			if(!$timestamp){
+				throw new EndpointException('invalid bound!');
+			}
+
+			return $timestamp;
+		}
+	*/
 }

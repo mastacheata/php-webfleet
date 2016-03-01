@@ -16,7 +16,6 @@
 namespace TomTom\Telematics;
 
 use Dotenv\Dotenv;
-use GuzzleHttp\Client as Guzzle;
 use ReflectionClass;
 use TomTom\Telematics\Parameters\Authentication;
 use TomTom\Telematics\Parameters\DateRangeFilter;
@@ -178,11 +177,6 @@ class WebfleetConnect{
 	private $methodMap = [];
 
 	/**
-	 * @var \GuzzleHttp\Client
-	 */
-	private $http;
-
-	/**
 	 * @var \TomTom\Telematics\WebfleetOptions
 	 */
 	private $webfleetOptions;
@@ -208,8 +202,6 @@ class WebfleetConnect{
 	 */
 	public function __construct(WebfleetOptions $webfleetOptions, Authentication $authentication = null, General $generalParams = null){
 		$this->mapApiMethods();
-		$this->http = new Guzzle;
-
 		$this->setOptions($webfleetOptions);
 		$this->setGeneralParams($generalParams);
 		$this->setAuthenticationParams($authentication);
@@ -377,7 +369,7 @@ class WebfleetConnect{
 		$this->generalParams->useISO8601 = true;
 		$this->generalParams->useUTF8 = true;
 
-		return new EndpointHandler($this->http, $this->webfleetOptions, $this->authenticationParams, $this->generalParams, $params, $rangeFilter);
+		return (new EndpointHandler($this->webfleetOptions, $this->authenticationParams, $this->generalParams, $params, $rangeFilter))->get();
 	}
 
 }

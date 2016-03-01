@@ -31,4 +31,52 @@ class WebfleetOptions{
 	 */
 	public $storageDir = '';
 
+	/**
+	 * @var string
+	 */
+	public $cacert = ROOTDIR.'storage'.DIRECTORY_SEPARATOR.'cert'.DIRECTORY_SEPARATOR.'cacert.pem';
+
+
+	/**
+	 * @todo
+	 * @var bool
+	 */
+#	public $returnArray = false;
+
+	/**
+	 * @var int
+	 */
+#	public $sleep = 5;
+
+	/**
+	 * dump output to disk?
+	 * @var bool
+	 */
+#	public $dumpToDisk = false;
+
+	/**
+	 * Log to console?
+	 * @var bool
+	 */
+#	public $logToCli = true;
+
+	/**
+	 * Write a logfile?
+	 * @var bool
+	 */
+#	public $log_enabled = true;
+
+	/**
+	 * Logfile name
+	 * @var string
+	 */
+#	public $log_file = '';
+
+	/**
+	 * Time format for console output
+	 * @see date()
+	 * @var string
+	 */
+#	public $log_date_format = '[Y-m-d H:i:s \U\T\C]';
+
 }
