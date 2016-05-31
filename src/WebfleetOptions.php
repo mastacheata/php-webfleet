@@ -34,7 +34,7 @@ class WebfleetOptions{
 	/**
 	 * @var string
 	 */
-	public $cacert = $storageDir.DIRECTORY_SEPARATOR.'cert'.DIRECTORY_SEPARATOR.'cacert.pem';
+	public $cacert = 'cert'.DIRECTORY_SEPARATOR.'cacert.pem';
 
 
 	/**
