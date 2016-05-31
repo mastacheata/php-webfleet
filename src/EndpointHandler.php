@@ -128,7 +128,7 @@ class EndpointHandler{
 		}
 
 		$requestOptions = new RequestOptions;
-		$requestOptions->ca_info = __DIR__.'/../storage/cert/cacert.pem';
+		$requestOptions->ca_info = $this->webfleetOptions->cacert;
 
 		$request = new Request($requestOptions);
 
