@@ -243,10 +243,10 @@ class WebfleetConnect{
 
 		if(!$authenticationParams){
 			$authenticationParams           = new Authentication;
-			$authenticationParams->account  = getenv('WEBFLEET_ACCOUNT');
-			$authenticationParams->username = getenv('WEBFLEET_USERNAME');
-			$authenticationParams->password = getenv('WEBFLEET_PASSWORD');
-			$authenticationParams->apikey   = getenv('WEBFLEET_APIKEY');
+			$authenticationParams->account  = urlencode(getenv('WEBFLEET_ACCOUNT'));
+			$authenticationParams->username = urlencode(getenv('WEBFLEET_USERNAME'));
+			$authenticationParams->password = urlencode(getenv('WEBFLEET_PASSWORD'));
+			$authenticationParams->apikey   = urlencode(getenv('WEBFLEET_APIKEY'));
 		}
 
 		$this->authenticationParams = $authenticationParams;
